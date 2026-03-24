@@ -8,11 +8,13 @@ def lambda_handler(event, context):
         reps = body["reps"]
         unit = body["unit"]
 
+        #Please update the CORS settings to reflect your own website. 
+        #Replace all instances of your https://yourwebsite.com.
         if reps == 1:
             return {
                 "statusCode": 200,
                 "headers": {
-                    "Access-Control-Allow-Origin": "https://1rm.seenikurulla.online",
+                    "Access-Control-Allow-Origin": "https://yourwebsite.com",
                     "Access-Control-Allow-Headers": "Content-Type"
                 },
                  "body": json.dumps({"message": f"No calculation needed. Your 1RM for {lift} is {weight} {unit}."})
@@ -23,7 +25,7 @@ def lambda_handler(event, context):
             return {
                 "statusCode": 400,
                 "headers": {
-                    "Access-Control-Allow-Origin": "https://1rm.seenikurulla.online",
+                    "Access-Control-Allow-Origin": "https://yourwebsite.com",
                     "Access-Control-Allow-Headers": "Content-Type"
                 },
                  "body": json.dumps({"error": error})
@@ -34,7 +36,7 @@ def lambda_handler(event, context):
         return {
             "statusCode": 200,
             "headers": {
-                "Access-Control-Allow-Origin": "https://1rm.seenikurulla.online",
+                "Access-Control-Allow-Origin": "https://yourwebsite.com",
                 "Access-Control-Allow-Headers": "Content-Type"
             },
             "body": json.dumps({
@@ -52,7 +54,7 @@ def lambda_handler(event, context):
         return {
             "statusCode": 500,
             "headers": {
-                "Access-Control-Allow-Origin": "https://1rm.seenikurulla.online",
+                "Access-Control-Allow-Origin": "https://yourwebsite.com",
                 "Access-Control-Allow-Headers": "Content-Type"
             },
             "body": json.dumps({"error": "An unexpected error occurred."})
